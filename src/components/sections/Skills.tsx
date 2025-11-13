@@ -1,14 +1,5 @@
 import { motion } from 'framer-motion';
-import { 
-  FiCode, 
-  FiDatabase, 
-  FiServer, 
-  FiCloud, 
-  FiGitBranch,
-  FiLayers,
-  FiCpu,
-  FiMonitor
-} from 'react-icons/fi';
+import { FiDatabase, FiServer, FiCloud, FiLayers, FiMonitor } from 'react-icons/fi';
 
 const Skills = () => {
   const skillCategories = [

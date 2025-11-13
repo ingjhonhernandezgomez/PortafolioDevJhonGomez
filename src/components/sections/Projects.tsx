@@ -1,13 +1,23 @@
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
-// Usar rutas absolutas desde el directorio src
+import patitasImage from '../../assets/images/projects/patitas.svg';
 import todoImage from '../../assets/images/projects/todo.png';
 import movieImage from '../../assets/images/projects/movie.png';
 import catImage from '../../assets/images/projects/cat.png';
 import landingImage from '../../assets/images/projects/landing.png';
 
 const Projects = () => {
+  const featuredProject = {
+    title: 'Patitas Unidas',
+    description:
+      'Plataforma solidaria para conectar rescatistas, refugios y adoptantes a través de campañas, donaciones y difusión de mascotas.',
+    image: patitasImage,
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+    github: 'https://github.com/Josear0108/patitas-unidas',
+    demo: 'https://josear0108.github.io/patitas-unidas/'
+  };
+
   const projects = [
     {
       title: 'TodoS - Gestor de Tareas',
@@ -60,6 +70,69 @@ const Projects = () => {
             Algunos de los proyectos que he desarrollado para mejorar mis habilidades y aprender nuevas tecnologías
           </p>
         </motion.div>
+
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl mb-12"
+        >
+          <div className="md:grid md:grid-cols-2">
+            <div className="relative h-64 md:h-full">
+              <img
+                src={featuredProject.image}
+                alt={featuredProject.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <span className="absolute top-4 left-4 inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-primary-500 text-white rounded-full shadow-lg">
+                Proyecto Destacado
+              </span>
+            </div>
+
+            <div className="p-8 flex flex-col justify-center">
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
+                {featuredProject.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                {featuredProject.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {featuredProject.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex space-x-4">
+                <a
+                  href={featuredProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                >
+                  <FiGithub className="mr-2" />
+                  Código
+                </a>
+                <a
+                  href={featuredProject.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                >
+                  <FiExternalLink className="mr-2" />
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.article>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
