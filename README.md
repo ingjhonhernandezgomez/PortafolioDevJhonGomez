@@ -48,13 +48,15 @@ Un portafolio moderno y responsive creado con React, TypeScript, Vite y Tailwind
 
 ```
 src/
-├── components/       # Componentes reutilizables
-│   ├── layout/       # Componentes de estructura (Navbar, Footer)
-│   ├── sections/     # Secciones principales (Hero, About, etc.)
-│   └── ui/           # Componentes UI (botones, tarjetas, etc.)
-├── assets/           # Recursos estáticos (imágenes, fuentes, etc.)
-├── styles/           # Estilos globales y temas
-└── hooks/            # Custom hooks
+├── assets/           # Recursos estáticos (imágenes, íconos, documentos)
+│   └── images/       # Miniaturas y gráficos de los proyectos
+├── components/
+│   ├── layout/       # Componentes de estructura (Navbar, ThemeToggle)
+│   ├── sections/     # Secciones principales (Hero, About, Skills, Projects, Contact)
+│   └── ui/           # Componentes UI reutilizables
+├── App.tsx           # Orquesta las secciones principales
+├── index.css         # Estilos globales basados en Tailwind
+└── main.tsx          # Punto de entrada de la aplicación
 ```
 
 ## 🚀 Despliegue
